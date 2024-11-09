@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Genera tu factura de compra fácilmente.">
+  <title>Facturación - Herramientas Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <div class="logo">
+      <h1>Herramientas a la Mano</h1>
+    </div>
+    <nav>
+      <!-- Menú Desplegable -->
+      <li class="dropdown">
+        <a class="dropbtn">Menú</a>
+          <ul class="dropdown-content">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="inventario.html">Inventario</a></li>
+            <li><a href="facturacion.html">Facturación</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+      </li>
+  </nav>
+  </header>
+
+  <!-- Sección de Facturación -->
+  <section class="facturacion">
+    <h2>Generar Factura</h2>
+    <p>Por favor, complete los datos a continuación para generar su factura.</p>
+
+    <!-- Formulario de Facturación -->
+    <form action="procesar_factura.php" method="post">
+      <div class="form-group">
+        <label for="nombre">Nombre del Cliente:</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+
+      <div class="form-group">
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" required>
+      </div>
+
+      <div class="form-group">
+        <label for="productos">Productos Comprados:</label>
+        <textarea id="productos" name="productos" rows="4" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="total">Total a Pagar:</label>
+        <input type="number" id="total" name="total" required>
+      </div>
+
+      <button type="submit" class="btn-primary">Generar Factura</button>
+    </form>
+  </section>
+
+  <!-- Pie de Página -->
+  <footer>
+    <p>&copy; 2024 Herramientas Pro. Todos los derechos reservados.</p>
+    <ul>
+      <li><a href="#">Términos y Condiciones</a></li>
+      <li><a href="#">Política de Privacidad</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </footer>
+</body>
+</html>

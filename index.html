@@ -5,29 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Compra herramientas de alta calidad en línea.">
   <title>Herrramientas a la mano</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
-  <!-- Encabezado -->
-  <header>
-    <div class="logo">
-      <h1>Herramientas a la Mano</h1>
-    </div>
-    <nav>
-        <!-- Menú Desplegable -->
-        <li class="dropdown">
-          <a class="dropbtn">Menú</a>
-            <ul class="dropdown-content">
-              <li><a href="index.html">Inicio</a></li>
-              <li><a href="catalogo.html">Catálogo</a></li>
-              <li><a href="inventario.html">Inventario</a></li>
-              <li><a href="facturacion.html">Facturación</a></li>
-              <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </li>
-    </nav>
-  </header>
+  <!-- Navbar -->
+  <nav>
+    <!-- Checkbox for toggling menu -->
+    <input type="checkbox" id="check">
+    <!-- Menu icon -->
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <!-- Site logo -->
+    <label class="logo">MiInventario</label>
+    <!-- Navigation links -->
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="inventario.html">Inventario</a></li>
+      <li><a href="facturacion.html">Facturación</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
 
   <!-- Banner Principal -->
   <section class="banner">
@@ -58,6 +59,12 @@
         <img src="imagenes/maletinHerramientas1.jpg" alt="Producto 3" width="250" height="250">
         <h3>Maletín para Herramientas</h3>
         <p class="price">$15.00</p>
+        <a href="#" class="btn-primary">Añadir al carrito</a>
+      </div>
+      <div class="product">
+        <img src="imagenes/prensaMetalica1.jpg" alt="Prensa Metálica" width="250" height="250">
+        <h3>Prensa Metálica</h3>
+        <p class="price">$50.00</p>
         <a href="#" class="btn-primary">Añadir al carrito</a>
       </div>
     </div>

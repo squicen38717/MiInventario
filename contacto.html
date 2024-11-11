@@ -5,53 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Contáctanos para más información sobre nuestras herramientas.">
   <title>Contacto - Herramientas Pro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Encabezado -->
-  <header>
-    <div class="logo">
-      <h1>Herramientas a la Mano</h1>
-    </div>
-    <nav>
-      <!-- Menú Desplegable -->
-      <li class="dropdown">
-        <a class="dropbtn">Menú</a>
-          <ul class="dropdown-content">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="catalogo.html">Catálogo</a></li>
-            <li><a href="inventario.html">Inventario</a></li>
-            <li><a href="facturacion.html">Facturación</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-          </ul>
-      </li>
+   <!-- Navbar -->
+   <nav>
+    <!-- Checkbox for toggling menu -->
+    <input type="checkbox" id="check">
+    <!-- Menu icon -->
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <!-- Site logo -->
+    <label class="logo">MiInventario</label>
+    <!-- Navigation links -->
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="inventario.html">Inventario</a></li>
+      <li><a href="facturacion.html">Facturación</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
   </nav>
-  </header>
-
   <!-- Sección de Contacto -->
-  <section class="contacto">
+  <section class="contacto catalogo inventario">
     <h2>Contáctanos</h2>
-    <p>Si tienes alguna pregunta o necesitas más información sobre nuestros productos, por favor llena el formulario a continuación y nos pondremos en contacto contigo lo antes posible.</p>
+    <p class="text-box">Si tienes alguna pregunta o necesitas más información sobre nuestros productos, por favor llena el formulario a continuación y nos pondremos en contacto contigo lo antes posible.</p>
 
     <!-- Formulario de Contacto -->
+    <div class="form-container">
     <form action="enviar_formulario.php" method="post">
-      <div class="form-group">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
-      </div>
 
-      <div class="form-group">
         <label for="email">Correo Electrónico:</label>
         <input type="email" id="email" name="email" required>
-      </div>
 
-      <div class="form-group">
         <label for="mensaje">Mensaje:</label>
         <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-      </div>
 
       <button type="submit" class="btn-primary">Enviar</button>
     </form>
+    </div>
   </section>
 
   <!-- Pie de Página -->

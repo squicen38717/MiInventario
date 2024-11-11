@@ -5,58 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Genera tu factura de compra fácilmente.">
   <title>Facturación - Herramientas Pro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Encabezado -->
-  <header>
-    <div class="logo">
-      <h1>Herramientas a la Mano</h1>
-    </div>
-    <nav>
-      <!-- Menú Desplegable -->
-      <li class="dropdown">
-        <a class="dropbtn">Menú</a>
-          <ul class="dropdown-content">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="catalogo.html">Catálogo</a></li>
-            <li><a href="inventario.html">Inventario</a></li>
-            <li><a href="facturacion.html">Facturación</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-          </ul>
-      </li>
+  <!-- Navbar -->
+  <nav>
+    <!-- Checkbox for toggling menu -->
+    <input type="checkbox" id="check">
+    <!-- Menu icon -->
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <!-- Site logo -->
+    <label class="logo">MiInventario</label>
+    <!-- Navigation links -->
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="inventario.html">Inventario</a></li>
+      <li><a href="facturacion.html">Facturación</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
   </nav>
-  </header>
-
   <!-- Sección de Facturación -->
-  <section class="facturacion">
+  <section class="facturacion catalogo inventario">
     <h2>Generar Factura</h2>
-    <p>Por favor, complete los datos a continuación para generar su factura.</p>
+    <p class="text-box">Por favor, complete los datos a continuación para generar su factura.</p>
 
     <!-- Formulario de Facturación -->
+   <div class="form-container">
     <form action="procesar_factura.php" method="post">
-      <div class="form-group">
-        <label for="nombre">Nombre del Cliente:</label>
+        <label for="nombre">Nombre del Cliente:</label> 
         <input type="text" id="nombre" name="nombre" required>
-      </div>
 
-      <div class="form-group">
         <label for="direccion">Dirección:</label>
         <input type="text" id="direccion" name="direccion" required>
-      </div>
 
-      <div class="form-group">
         <label for="productos">Productos Comprados:</label>
         <textarea id="productos" name="productos" rows="4" required></textarea>
-      </div>
-
-      <div class="form-group">
+  
         <label for="total">Total a Pagar:</label>
         <input type="number" id="total" name="total" required>
-      </div>
+     
 
       <button type="submit" class="btn-primary">Generar Factura</button>
     </form>
+  </div>
   </section>
 
   <!-- Pie de Página -->

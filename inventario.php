@@ -7,6 +7,7 @@
   <title>Inventario - Herramientas Pro</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
+  <?php include_once "server-scripts/conDB.php";?>
 </head>
 <body>
  <!-- Navbar -->
@@ -23,57 +24,65 @@
   <ul>
     <li><a href="index.html">Inicio</a></li>
     <li><a href="catalogo.html">Catálogo</a></li>
-    <li><a href="inventario.html">Inventario</a></li>
+    <li><a href="inventario.php">Inventario</a></li>
     <li><a href="facturacion.html">Facturación</a></li>
     <li><a href="contacto.html">Contacto</a></li>
   </ul>
 </nav>
   <!-- Sección de Inventario -->
-  <section class="catalogo inventario">
+  <section class="catalogo">
     <h2>Inventario de Herramientas</h2>
     <p class="text-box">Consulta las herramientas disponibles en nuestro inventario.</p>
 
-    <!-- Tabla de Inventario -->
-    <table>
+  <!-- Tabla de Inventario -->
+    <?php 
+    $sql = "SELECT * FROM producto";
+    $result = $conn->query($sql);
+    ?>
+    
+    <table class="tablaInventario">
       <thead>
         <tr>
+          <th>ID</th>
           <th>Producto</th>
           <th>Cantidad</th>
           <th>Precio</th>
-          <th>Acciones</th>
+          <th class="leftClumn">Acciones</th>
         </tr>
       </thead>
       <tbody>
-        <!-- Fila de Producto 1 -->
+        <?php while ($row = $result->fetch_assoc()) { ?>
         <tr>
-          <td>Martillo Profesional</td>
-          <td>150</td>
-          <td>$20.00</td>
-          <td><button class="btn-secondary">Modificar</button></td>
+          <td><?=$row["id"]; ?></td>
+          <td><?=$row["nombre"]; ?></td>
+          <td><?=$row["cantidad"]; ?></td>
+          <td><?=$row["precio"]; ?></td>
+          <td class="leftClumn">
+            <a class="btn-secondary">Modificar</a>
+            <a class="btn-third" href="server-scripts/eliminar-producto.php?id=<?=$row["id"];?>" onclick ="return confirm('Quireres eliminar este producto?');" >eliminar</a>
+          </td>
         </tr>
-        <!-- Fila de Producto 2 -->
-        <tr>
-          <td>Destornillador Eléctrico</td>
-          <td>120</td>
-          <td>$35.00</td>
-          <td><button class="btn-secondary">Modificar</button></td>
-        </tr>
-        <!-- Fila de Producto 3 -->
-        <tr>
-          <td>Juego de Llaves</td>
-          <td>80</td>
-          <td>$15.00</td>
-          <td><button class="btn-secondary">Modificar</button></td>
-        </tr>
-        <!-- Fila de Producto 4 -->
-        <tr>
-          <td>Sierra Circular</td>
-          <td>45</td>
-          <td>$50.00</td>
-          <td><button class="btn-secondary">Modificar</button></td>
-        </tr>
+        <?php } ?>
       </tbody>
     </table>
+  </section>
+  <!-- Agregar producto -->
+  <section class="catalogo">
+    <h2>Agrega nuevo producto</h2>
+    <div class="form-container">
+      <form action="server-scripts/agregar-producto.php" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+        
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" name="cantidad">
+
+        <label for="precio">Precio:</label>
+        <input type="number" step="0.01" id="precio" name="precio">
+
+        <button type="submit" class="btn-primary">Agregar</button>
+      </form>
+    </div>
   </section>
 
   <!-- Pie de Página -->

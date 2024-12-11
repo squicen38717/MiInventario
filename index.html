@@ -7,9 +7,111 @@
   <title>Herrramientas a la mano</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHFXQjwbvpSTjtgfLpNSq4VYGxzZ8wpzk&callback=initMap" async defer></script>
+  <script>
+    const apiKey = '888920f0ee45d9bd66d07edeff3bc866'; // Tu clave de API de OpenWeatherMap
+    const city = 'Bogota'; // Ciudad de interés
+
+    async function getWeather() {
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=es`; // API con parámetros
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status} ${response.statusText}`);
+        }
+        const data = await response.json();
+        displayWeather(data);
+      } catch (error) {
+        console.error('Error fetching the weather data:', error);
+        document.getElementById('weather-info').innerText = 'Error fetching weather data.';
+      }
+    }
+
+    function displayWeather(data) {
+      const temperature = data.main.temp;
+      const description = data.weather[0].description;
+      const iconCode = data.weather[0].icon;
+      
+      // Actualizamos el contenido del widget
+      document.getElementById('temperature').innerText = `${temperature} °C`;
+      document.getElementById('description').innerText = description.charAt(0).toUpperCase() + description.slice(1);
+      
+      // Mostrar el ícono del clima
+      const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
+      document.getElementById('weather-icon-img').src = iconUrl;
+      document.getElementById('weather-icon-img').alt = description;
+    }
+
+    // Llamar a la función cuando la página cargue
+    window.onload = function() {
+      getWeather(); // Carga inicial
+      setInterval(getWeather, 3600000); // Actualiza cada minuto
+    };
+  </script>
+  <style>
+    /* Estilos para el Widget de Clima */
+    .weather-widget {
+      margin-top: 40px;
+      padding: 30px;
+      background-color: #007bff;  /* Fondo azul */
+      border-radius: 12px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;  /* Asegura que todo el contenido esté centrado */
+      color: white;  /* Color de texto blanco para contraste */
+    }
+
+    .weather-widget h2 {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    #weather-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #location {
+      margin-bottom: 10px;
+    }
+
+    #city-name {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;  /* Color de texto blanco */
+    }
+
+    #description {
+      font-size: 16px;
+      color: #ddd;  /* Color de texto más claro para la descripción */
+    }
+
+    #weather-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #temperature {
+      font-size: 48px;
+      font-weight: bold;
+      color: #fff;  /* Blanco para el texto de la temperatura */
+      margin-right: 15px;
+    }
+
+    #weather-icon img {
+      width: 80px;  /* Tamaño ajustado del icono */
+      height: 80px;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-    
   <!-- Navbar -->
   <nav>
     <!-- Checkbox for toggling menu -->
@@ -29,7 +131,7 @@
       <li><a href="contacto.html">Contacto</a></li>
     </ul>
   </nav>
-
+  
   <!-- Banner Principal -->
   <section class="banner">
     <div class="banner-content">
@@ -38,7 +140,7 @@
       <a href="catalogo.html" class="btn-primary">Explora nuestro catálogo</a>
     </div>
   </section>
-
+  
   <!-- Productos Destacados -->
   <section id="catalogo" class="catalogo">
     <h2>Productos Destacados</h2>
@@ -70,6 +172,25 @@
     </div>
   </section>
 
+  <!-- Weather Widget Section -->
+  <section id="weather-widget-section" class="weather-widget">
+    <h2>Clima Actual</h2>
+    <div id="weather-widget" class="weather-card">
+      <div id="weather-info">
+        <div id="location">
+          <h3 id="city-name">Bogotá</h3>
+          <p id="description"></p>
+        </div>
+        <div id="weather-main">
+          <div id="temperature"></div>
+          <div id="weather-icon">
+            <img id="weather-icon-img" src="" alt="Clima" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Pie de Página -->
   <footer>
     <p>&copy; 2024 Herramientas Pro. Todos los derechos reservados.</p>
@@ -78,7 +199,8 @@
       <li><a href="#">Política de Privacidad</a></li>
       <li><a href="#">Contacto</a></li>
     </ul>
+    <div id="map" style="height: 500px;"></div>
+    <script src="maps.js"></script>
   </footer>
-
 </body>
 </html>

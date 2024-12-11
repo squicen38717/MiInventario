@@ -153,6 +153,7 @@ a:hover {
   border-radius: 5px;
   border: none;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 .btn-primary:hover {
@@ -168,9 +169,24 @@ a:hover {
   border-radius: 5px;
   border: none;
   font-size: 0.8rem;
+  cursor: pointer;
 }
 .btn-secondary:hover {
   background-color: #e6b800;
+} 
+.btn-third {
+  padding: 10px 20px;
+  background-color: #ff0000;
+  color: #fafafa;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.btn-third:hover {
+  background-color: #a20000;
 }
 
 
@@ -268,15 +284,15 @@ footer ul li a:hover {
   color: #ffcc00;
 }
 
-table {
+.tablaInventario {
   margin: 20px auto;
   width: 100%;
   max-width: 700px;
   text-align: left;
 
 }
-td, th {
-  padding: 5px;
+.tablaInventario td, .tablaInventario th {
+  padding: 8px;
 }
 
 /* Estilo básico para las imágenes */
@@ -304,17 +320,39 @@ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Agrega una sombra suave */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.242);
   box-sizing: border-box;
 }
-input, textarea {
+.form-container input,.form-container textarea {
   width: 99%;
   padding: 10px;
   border: none;
   border-bottom: 2px solid #b9b9b9;
   margin-bottom: 20px;
 }
-form{
+.form-container form{
   margin: 0 auto;
   padding: 20px;
 }
-label {
+.form-container label {
   font-weight: bold;
+}
+.tablaInventario .leftClumn {
+  text-align: center;
+}
+
+.pg-respuesta{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(199, 255, 199);
+}
+.respuesta {
+  width: 400px;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: rgb(255, 249, 241);
+  border-radius: 8px;
+  box-shadow:0px 10px 8px rgb(98, 98, 98);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

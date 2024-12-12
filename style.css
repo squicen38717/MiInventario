@@ -1,19 +1,17 @@
-/* Resetear */
+/* página */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
-} 
-
+}
 body, html {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   background-color: #f4f4f4;
   min-height:100vh;
 }
-
 .text-box {
   max-width: 700px;
   margin: 15px auto;
@@ -25,7 +23,6 @@ nav {
   height: 80px;
   width: 100%;
 }
-
 label.logo {
   color: white;
   font-size: 25px;
@@ -33,18 +30,15 @@ label.logo {
   padding: 0 100px;
   font-weight: bold;
 }
-
 nav ul {
   float: right;
   margin-right: 20px;
 }
-
 nav ul li {
   display: inline-block;
   line-height: 80px;
   margin: 0 5px;
 }
-
 nav ul li a {
   color: white;
   font-size: 17px;
@@ -52,12 +46,10 @@ nav ul li a {
   border-radius: 3px;
   text-transform: uppercase;
 }
-
 a:hover {
   background: #e6b800;
   transition: .5s;
 }
-
 .checkbtn {
   font-size: 22px;
   color: white;
@@ -67,7 +59,6 @@ a:hover {
   cursor: pointer;
   display: none;
 }
-
 #check {
   display: none;
 }
@@ -82,7 +73,7 @@ a:hover {
   }
 }
 
-/* Responsive Navbar*/
+/* Navbar responsive*/
 @media (max-width: 935px) {
   .checkbtn {
     display: block;
@@ -91,7 +82,6 @@ a:hover {
   label.logo {
     font-size: 22px;
   }
-
   ul {
     position: fixed;
     width: 100%;
@@ -102,23 +92,19 @@ a:hover {
     text-align: center;
     transition: all .5s;
   }
-
   nav ul li {
     display: block;
     margin: 50px 0;
     line-height: 30px;
   }
-
   nav ul li a {
     font-size: 20px;
   }
-
   a:hover,
   a.active {
     background: none;
     color: #e6b800;
   }
-
   #check:checked~ul {
     left: 0;
   }
@@ -132,18 +118,17 @@ a:hover {
   padding: 250px 20px 50px 20px;
   text-align: center;
 }
-
 .banner h2 {
   font-size: 3rem;
   margin-bottom: 10px;
   color: #ffffff;
 }
-
 .banner p {
   font-size: 1.25rem;
   margin-bottom: 20px;
 }
 
+/* botones */
 .btn-primary {
   padding: 10px 20px;
   background-color: #ffcc00;
@@ -155,11 +140,9 @@ a:hover {
   font-size: 1rem;
   cursor: pointer;
 }
-
 .btn-primary:hover {
   background-color: #e6b800;
 }
-
 .btn-secondary {
   padding: 10px 20px;
   background-color: #ffcc00;
@@ -189,23 +172,16 @@ a:hover {
   background-color: #a20000;
 }
 
-
-.inventario {
-  min-height: calc(100vh - 180px);
-}
-
 /* Catálogo de Productos */
 .catalogo {
   padding: 40px 20px;
   text-align: center;
   background-color: #fff;
 }
-
 .catalogo h2 {
   font-size: 2.5rem;
   margin-bottom: 30px;
 }
-
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -218,6 +194,7 @@ a:hover {
   }
 }
 
+/* Productos */
 .product {
   background-color: #fff;
   border: 1px solid #ddd;
@@ -226,25 +203,21 @@ a:hover {
   border-radius: 8px;
   align-content: flex-end;
 }
-
 .product img {
   width: 100%;
   height: auto;
   border-radius: 8px;
   margin-bottom: 15px;
 }
-
 .product h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
-
 .product .price {
   font-size: 1.2rem;
   color: #333;
   margin-bottom: 20px;
 }
-
 .product .btn-primary {
   background-color: #333;
   color: #fff;
@@ -252,9 +225,11 @@ a:hover {
   text-decoration: none;
   border-radius: 5px;
 }
-
 .product .btn-primary:hover {
   background-color: #555;
+}
+.inventario {
+  min-height: calc(100vh - 180px);
 }
 
 /* Pie de Página */
@@ -264,58 +239,56 @@ footer {
   padding: 20px 0;
   text-align: center;
 }
-
 footer ul {
   list-style: none;
   margin-top: 10px;
 }
-
 footer ul li {
   display: inline;
   margin: 0 10px;
 }
-
 footer ul li a {
   color: #fff;
   text-decoration: none;
 }
-
 footer ul li a:hover {
   color: #ffcc00;
 }
 
+/* Tabla */
 .tablaInventario {
   margin: 20px auto;
   width: 100%;
   max-width: 700px;
   text-align: left;
-
 }
 .tablaInventario td, .tablaInventario th {
   padding: 8px;
 }
+.tablaInventario .leftClumn {
+  text-align: center;
+}
 
-/* Estilo básico para las imágenes */
+/*Imágenes */
 .product img {
 transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto suave de transición */
 width: 100%; /* Asegura que la imagen ocupe todo el contenedor */
 height: auto;
 }
 
-/* Efecto hover en las imágenes */
 .product:hover img {
 transform: scale(1.1); /* Aumenta el tamaño de la imagen */
 box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Agrega una sombra suave */
 }
 
-/* Formulario */
 
+/* Formulario */
 .form-container {
   margin: 0 auto;
   width: 80%;
   max-width: 700px;
   padding: 20px;
-  background-color: #f0f0f0b9;
+  background-color: #f8f8f8;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.242);
   box-sizing: border-box;
@@ -334,10 +307,8 @@ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Agrega una sombra suave */
 .form-container label {
   font-weight: bold;
 }
-.tablaInventario .leftClumn {
-  text-align: center;
-}
 
+/* Respuesta de acciones */
 .pg-respuesta{
   display: flex;
   justify-content: center;
@@ -355,4 +326,97 @@ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Agrega una sombra suave */
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+/* Modal modificar producto */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+  margin: 10% auto;
+  text-align: center;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+/* Estilos para el Widget de Clima */
+.weather-widget {
+  padding: 20px;
+  text-align: center;
+  max-width: 400px;
+  margin: 50px auto;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+}
+.widget-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #444;
+}
+.weather-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.location {
+  margin-bottom: 20px;
+}
+.city-name {
+  font-size: 22px;
+  margin: 0;
+  color: #222;
+}
+.description {
+  font-size: 16px;
+  color: #666;
+}
+.weather-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.temperature {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ff6600;
+}
+.weather-icon img {
+  width: 50px;
+  height: 50px;
+}
+@media (max-width: 480px) {
+  .weather-widget {
+      padding: 15px;
+  }
+  .widget-title {
+      font-size: 20px;
+  }
+  .temperature {
+      font-size: 30px;
+  }
+  .weather-icon img {
+      width: 40px;
+      height: 40px;
+  }
 }

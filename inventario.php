@@ -58,7 +58,7 @@
           <td><?=$row["cantidad"]; ?></td>
           <td><?=$row["precio"]; ?></td>
           <td class="leftClumn">
-            <a class="btn-secondary">Modificar</a>
+            <a class="btn-secondary" href="javascript:void(0);">Modificar</a>
             <a class="btn-third" href="server-scripts/eliminar-producto.php?id=<?=$row["id"];?>" onclick ="return confirm('Quireres eliminar este producto?');" >eliminar</a>
           </td>
         </tr>
@@ -66,6 +66,28 @@
       </tbody>
     </table>
   </section>
+
+    <!-- Modal -->
+<div id="updateModal" class="modal">
+  <div class="modal-content form-container">
+    <span class="close">&times;</span>
+    <h2>Modificar Producto</h2>
+    <form id="updateForm" action="server-scripts/modificar-producto.php" method="POST">
+      <input type="hidden" id="updateId" name="id">
+      <label for="updateNombre">Nombre:</label>
+      <input type="text" id="updateNombre" name="nombre">
+      
+      <label for="updateCantidad">Cantidad:</label>
+      <input type="number" id="updateCantidad" name="cantidad">
+
+      <label for="updatePrecio">Precio:</label>
+      <input type="number" step="0.01" id="updatePrecio" name="precio">
+
+      <button type="submit" class="btn-primary">Actualizar</button>
+    </form>
+  </div>
+</div>
+
   <!-- Agregar producto -->
   <section class="catalogo">
     <h2>Agrega nuevo producto</h2>
@@ -94,5 +116,6 @@
       <li><a href="#">Contacto</a></li>
     </ul>
   </footer>
+  <script src="producto-modal.js"></script>
 </body>
 </html>

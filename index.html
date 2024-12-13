@@ -49,67 +49,7 @@
       setInterval(getWeather, 3600000); // Actualiza cada minuto
     };
   </script>
-  <style>
-    /* Estilos para el Widget de Clima */
-    .weather-widget {
-      margin-top: 40px;
-      padding: 30px;
-      background-color: #007bff;  /* Fondo azul */
-      border-radius: 12px;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      text-align: center;  /* Asegura que todo el contenido esté centrado */
-      color: white;  /* Color de texto blanco para contraste */
-    }
 
-    .weather-widget h2 {
-      font-size: 28px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    #weather-info {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    #location {
-      margin-bottom: 10px;
-    }
-
-    #city-name {
-      font-size: 24px;
-      font-weight: bold;
-      color: #fff;  /* Color de texto blanco */
-    }
-
-    #description {
-      font-size: 16px;
-      color: #ddd;  /* Color de texto más claro para la descripción */
-    }
-
-    #weather-main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    #temperature {
-      font-size: 48px;
-      font-weight: bold;
-      color: #fff;  /* Blanco para el texto de la temperatura */
-      margin-right: 15px;
-    }
-
-    #weather-icon img {
-      width: 80px;  /* Tamaño ajustado del icono */
-      height: 80px;
-      margin-top: 10px;
-    }
-  </style>
 </head>
 <body>
   <!-- Navbar -->
@@ -172,24 +112,24 @@
     </div>
   </section>
 
-  <!-- Weather Widget Section -->
+  <!-- API clima -->
   <section id="weather-widget-section" class="weather-widget">
-    <h2>Clima Actual</h2>
+    <h2 class="widget-title">Clima Actual</h2>
     <div id="weather-widget" class="weather-card">
-      <div id="weather-info">
-        <div id="location">
-          <h3 id="city-name">Bogotá</h3>
-          <p id="description"></p>
+        <div id="weather-info" class="weather-info">
+            <div id="location" class="location">
+                <h3 id="city-name" class="city-name">Bogotá</h3>
+                <p id="description" class="description">Soleado</p>
+            </div>
+            <div id="weather-main" class="weather-main">
+                <div id="temperature" class="temperature">25&deg;C</div>
+                <div id="weather-icon" class="weather-icon">
+                    <img id="weather-icon-img" src="icon.png" alt="Clima" />
+                </div>
+            </div>
         </div>
-        <div id="weather-main">
-          <div id="temperature"></div>
-          <div id="weather-icon">
-            <img id="weather-icon-img" src="" alt="Clima" />
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
+</section>
 
   <!-- Pie de Página -->
   <footer>

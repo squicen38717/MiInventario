@@ -7,48 +7,6 @@
   <title>Herrramientas a la mano</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHFXQjwbvpSTjtgfLpNSq4VYGxzZ8wpzk&callback=initMap" async defer></script>
-  <script>
-    const apiKey = '888920f0ee45d9bd66d07edeff3bc866'; // Tu clave de API de OpenWeatherMap
-    const city = 'Bogota'; // Ciudad de interés
-
-    async function getWeather() {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=es`; // API con parámetros
-
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status} ${response.statusText}`);
-        }
-        const data = await response.json();
-        displayWeather(data);
-      } catch (error) {
-        console.error('Error fetching the weather data:', error);
-        document.getElementById('weather-info').innerText = 'Error fetching weather data.';
-      }
-    }
-
-    function displayWeather(data) {
-      const temperature = data.main.temp;
-      const description = data.weather[0].description;
-      const iconCode = data.weather[0].icon;
-      
-      // Actualizamos el contenido del widget
-      document.getElementById('temperature').innerText = `${temperature} °C`;
-      document.getElementById('description').innerText = description.charAt(0).toUpperCase() + description.slice(1);
-      
-      // Mostrar el ícono del clima
-      const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
-      document.getElementById('weather-icon-img').src = iconUrl;
-      document.getElementById('weather-icon-img').alt = description;
-    }
-
-    // Llamar a la función cuando la página cargue
-    window.onload = function() {
-      getWeather(); // Carga inicial
-      setInterval(getWeather, 3600000); // Actualiza cada minuto
-    };
-  </script>
 
 </head>
 <body>
@@ -112,25 +70,6 @@
     </div>
   </section>
 
-  <!-- API clima -->
-  <section id="weather-widget-section" class="weather-widget">
-    <h2 class="widget-title">Clima Actual</h2>
-    <div id="weather-widget" class="weather-card">
-        <div id="weather-info" class="weather-info">
-            <div id="location" class="location">
-                <h3 id="city-name" class="city-name">Bogotá</h3>
-                <p id="description" class="description">Soleado</p>
-            </div>
-            <div id="weather-main" class="weather-main">
-                <div id="temperature" class="temperature">25&deg;C</div>
-                <div id="weather-icon" class="weather-icon">
-                    <img id="weather-icon-img" src="icon.png" alt="Clima" />
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
   <!-- Pie de Página -->
   <footer>
     <p>&copy; 2024 Herramientas Pro. Todos los derechos reservados.</p>
@@ -139,8 +78,6 @@
       <li><a href="#">Política de Privacidad</a></li>
       <li><a href="#">Contacto</a></li>
     </ul>
-    <div id="map" style="height: 500px;"></div>
-    <script src="maps.js"></script>
   </footer>
 </body>
 </html>

@@ -420,3 +420,8 @@ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Agrega una sombra suave */
       height: 40px;
   }
 }
+#map {
+  height: 500px;
+  max-width: 700px; 
+  margin: 0 auto;
+}
